@@ -47,7 +47,7 @@ export default {
   border-right: 5px solid;
   font-family: monospace;
   font-size: 7em;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 @keyframes typing {

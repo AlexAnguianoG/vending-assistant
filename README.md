@@ -1,4 +1,4 @@
-# vending-asisstant
+# vending-assistant
 
 ## Project setup
 ```
