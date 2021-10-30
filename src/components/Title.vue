@@ -1,5 +1,18 @@
 <template>
   <div class="wrapper">
+    <div class="slider">
+      <div class="slide-track">
+        <div class="slide">¿Qué produtos hay en la maquinita?</div>
+        <div class="slide">¿Qué precio tienen los tostitos?</div>
+        <div class="slide">¿Qué bebidas tienes?</div>
+        <div class="slide">Quiero unos takis</div>
+        <div class="slide">¿Cuáles categorias hay?</div>
+        <div class="slide">¿De qué galletas hay?</div>
+        <div class="slide">Dame unos Skittles</div>
+        <div class="slide">¿Cuál es el precio de las Oreo?</div>
+        <div class="slide">Selecciona Cheetos</div>
+      </div>
+    </div>
     <div class="typewriter">
       {{ text }}
     </div>
@@ -32,7 +45,8 @@ export default {
   height: 100vh;
   width: 100%;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
   justify-content: center;
   background: #000428;
   background: -webkit-linear-gradient(to top, #000428, #004e92, #000428);
@@ -41,13 +55,17 @@ export default {
 
 .typewriter {
   width: 20ch;
-  animation: typing 3.5s steps(20, end), blink-caret 0.75s step-end infinite alternate;
+  animation: typing 3.5s steps(20, end), blink-caret 0.75s 3.8s 6 step-end alternate, typing 1s 8.3s steps(20, end) reverse, typing 3.5s 9.3s steps(20, end), blink-caret 0.75s 13.4s step-end infinite alternate;
+  /*
+  animation: typing 5s steps(20,end) infinite alternate, blink-caret 0.75s step-end infinite alternate;
+  */
   white-space: nowrap;
   overflow: hidden;
-  border-right: 5px solid;
+  border-right: 5px solid #058cff;
   font-family: monospace;
-  font-size: 7em;
+  font-size: 6em;
   color: rgba(255, 255, 255, 0.9);
+  height: 1em;
 }
 
 @keyframes typing {
@@ -173,5 +191,75 @@ export default {
     opacity: 0;
     border-radius: 50%;
   }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+body {
+  align-items: center;
+  background: #e3e3e3;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-325px * 10));
+  }
+}
+
+.slider {
+  background: transparent;
+  height: 100px;
+  margin: 5% 0;
+  margin-top: 10%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.slider::before,
+.slider::after {
+  content: "";
+  height: 100px;
+  position: absolute;
+  z-index: 2;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slider .slide-track {
+  animation: scroll 15s linear infinite;
+  display: flex;
+}
+
+.slider .slide {
+  height: 100px;
+  width: auto;
+  margin: 0 5%;
+  white-space: nowrap;
+  font-family: monospace;
+  font-size: 2em;
+  color: rgba(255, 255, 255, 0.6);
 }
 </style>

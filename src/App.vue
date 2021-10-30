@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" style="width: 100%">
     <Title text="Asistente expendedor" />
   </div>
 </template>
